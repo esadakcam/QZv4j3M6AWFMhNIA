@@ -3,7 +3,7 @@ import twint
 import json
 import os
 class Tweet:
-    def __init__(self,context,retweet ,like ,url,user,username,date,time,replies):
+    def __init__(self,context,retweet ,like ,url,user,username,date,time,replies): #tweet class
         self.context = context
         self.retweet = retweet
         self.like = like
@@ -14,7 +14,7 @@ class Tweet:
         self.time = time
         self.replies = replies
 
-def sortR(tweet):
+def sortR(tweet): #sort methods
     return tweet.retweet
 def sortL(tweet):
     return tweet.like
@@ -22,7 +22,7 @@ def sortD(tweet):
     return tweet.date
 tweets = []
 flag = False
-def read():
+def read():  #reading data
     document_path = os.path.join('file.txt')
     with app.open_resource(document_path, 'r') as file1:
         Lines = file1.readlines()
@@ -53,7 +53,7 @@ def refresh():
     os. remove("file.txt")
     c = twint.Config()
     c.Search = "request for startup"
-    c.Limit = 1000
+    c.Limit = 1000 #number of total tweets
     c.Store_json = True
     c.Output = "file.txt"
     # Run
