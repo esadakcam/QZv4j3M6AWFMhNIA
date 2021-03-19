@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group btn-group-justified">
+  <a href="/" class="btn btn-primary">Sort By Date</a>
+  <a href="/like" class="btn btn-primary">Sort By Like</a>
+  <a href="/retweet" class="btn btn-primary">Sort By Retweet</a>
+   <a href="/refresh" class="btn btn-primary">Refresh</a>
+</div>
+
+    <ul>
+        
+        {% for tweet in tweets  %}
+        <li>
+            <h4> Author: {{tweet.user}} (@{{tweet.username}})</h4>
+            <p>{{tweet.context}}  </p>
+            <p style = " font-style: italic">Date:  {{tweet.date}} </p>
+            <p><span style ="color:blue">Replies Count: {{tweet.replies}}</span>, <span style ="color:green">Retweet Count: {{tweet.retweet}}</span>,<span style ="color:red"> Likes Count: {{tweet.like}}</span></p>
+
+        </li>
+        <br>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
