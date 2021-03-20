@@ -50,7 +50,7 @@ def retweet():
 
 @app.route("/refresh")
 def refresh():
-    os. remove("file.txt")
+    os.remove("file.txt")
     c = twint.Config()
     c.Search = "request for startup"
     c.Limit = 1000 #number of total tweets
